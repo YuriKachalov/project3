@@ -11,6 +11,9 @@ public class Util {
         Connection connection = null;
         try {
             connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            if (!connection.isClosed()){
+                return connection;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
